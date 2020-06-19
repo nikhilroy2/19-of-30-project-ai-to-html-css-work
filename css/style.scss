@@ -1,0 +1,163 @@
+
+// ...... SASS Style .......... 
+// color
+$color: (
+    primary: #010423,
+    light: #FFFFFF,
+    modern: #86E5EA,
+    gray: #676088
+);
+@function color($color-name){
+    @return map-get($color, $color-name);
+}
+// layout
+@mixin j-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+// ...... SASS Style .......... End
+
+// ..................................... Start......................
+
+// ...... Global ....
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(55deg,#13116D, #681166);
+    height: 100vh;
+    @include j-center;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+// ...... Global ....End
+
+
+.wrapper{
+    min-width: 800px;
+    min-height: 85vh;
+    background: url('../img/3826322-01.png') no-repeat center/ cover;
+}
+header{
+    background: color(primary);
+    padding: 0 2rem;
+    margin: 0;
+    nav{
+        margin: 0;
+        padding: 0;
+        ul{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: color(light);
+            input{
+                width: 110px;
+                border-radius: 50px;
+                padding: .3rem .5rem;
+                display: inline-block;
+                background: color(primary);
+                color: color(light);
+                border: none;
+                outline: none;
+                box-shadow: 0 0 2px color(modern);
+                &::placeholder{
+                    color: color(light);
+                    opacity: .8
+                }
+            }
+            a{
+                color: color(light);
+                display: inline-block;
+                padding: 1rem 1rem;
+                text-decoration: none;
+                &.active_nav{
+                    color: color(modern);
+                    position: relative;
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        width: 100%;
+                        height: 2px;
+                        background: color(modern);
+                        left: 0;
+                    }
+                }
+            }
+            button{
+                background: transparent;
+                color: color(light);
+                border: none;
+                outline: none;
+                font-size: 20px;
+            }
+        }
+    }
+}
+section{
+    color: color(light);
+    padding: 0 2rem;
+    h1, h3{
+        line-height: 25px;
+    }
+    .large_text{
+        font-size: 6rem;
+    }
+    .large_sm{
+        font-size: 4rem;
+    }
+    p{
+        max-width: 600px;
+        line-height: 23px;
+    }
+    .btn_more{
+        display: inline-block;
+        color: color(modern);
+        background: color(gray);
+        padding: .6rem 1.5rem;
+        text-decoration: none;
+        border-radius: 50px;
+        margin-top: 5rem;
+        margin-bottom: 1rem;
+    }
+}
+footer{
+    color: color(light);
+    padding: .5rem 2rem;
+    display: flex;
+    background: color(primary);
+    justify-content: space-between;
+    align-items: center;
+    .social_list{
+        a{
+            color: color(light);
+            text-decoration: none;
+            display: inline-block;
+            padding: .5rem;
+        }
+        
+    }
+    .help_link{
+        text-decoration: none;
+        color: color(light);
+        display: inline-block;
+        padding: .5rem;
+        i{
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            color: color(light);
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            margin-left: .5rem;
+            border: 1px solid color(light)
+        }
+    }
+}
